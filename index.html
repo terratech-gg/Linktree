@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Links</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="darkModeToggle" aria-label="Toggle dark mode" class="dark-mode-toggle">
+    <span id="darkModeIcon">🌙</span>
+  </button>
+  <header class="header">
+    <img src="logo.png" alt="Tech T Logo" class="logo" />
+  </header>
+  <main class="main-links">
+    <a class="link-btn instagram" href="https://www.instagram.com/terratech.gg/" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram Logo" class="platform-logo" />
+      <span>Instagram</span>
+    </a>
+    <a class="link-btn linkedin" href="https://www.linkedin.com/company/tarra-tech/" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn Logo" class="platform-logo" />
+      <span>LinkedIn</span>
+    </a>
+    <a class="link-btn companysite" href="https://igresfyed.github.io/Terra-Tech/" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoftoffice.svg" alt="Company Site Logo" class="platform-logo" />
+      <span>Company site</span>
+    </a>
+    <a class="link-btn github" href="https://github.com/terratech-gg" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub Logo" class="platform-logo" />
+      <span>GitHub</span>
+    </a>
+    <a class="link-btn facebook" href="https://www.facebook.com/profile.php?id=61578398371310&rdid=b1ZfsMiWrFYBkMEC&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16M5pQnTv6%2F" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook Logo" class="platform-logo" />
+      <span>Facebook</span>
+    </a>
+    <a class="link-btn youtube" href="https://www.youtube.com/@terratech-gg" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube Logo" class="platform-logo" />
+      <span>YouTube</span>
+    </a>
+    <a class="link-btn tiktok" href="https://www.tiktok.com/@terratech.gg" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg" alt="TikTok Logo" class="platform-logo" />
+      <span>TikTok</span>
+    </a>
+  </main>
+  <footer class="contact-section visible">
+    <a href="mailto:theterratech@gmail.com" class="contact-btn">theterratech@gmail.com</a>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.link-btn');
+      buttons.forEach((btn, i) => {
+        setTimeout(() => {
+          btn.classList.add('visible');
+        }, 200 + i * 120);
+      });
+    });
+    function fadeInOnScroll() {
+      const contact = document.querySelector('.contact-section');
+      const triggerBottom = window.innerHeight * 0.95;
+      if (contact) {
+        const contactTop = contact.getBoundingClientRect().top;
+        if (contactTop < triggerBottom) {
+          contact.classList.add('visible');
+        }
+      }
+    }
+    window.addEventListener('scroll', fadeInOnScroll);
+    window.addEventListener('DOMContentLoaded', fadeInOnScroll);
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeIcon = document.getElementById('darkModeIcon');
+    function setDarkMode(on) {
+      document.body.classList.toggle('dark-mode', on);
+      darkModeIcon.textContent = on ? '☀️' : '🌙';
+    }
+    darkModeToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark-mode');
+      darkModeIcon.textContent = isDark ? '☀️' : '🌙';
+    });
+  </script>
+</body>
+</html> 
